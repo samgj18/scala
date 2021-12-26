@@ -1,0 +1,14 @@
+.lh/
+.metals/
+.vscode/
+metals.sbt
+*.class
+*.log
+scala.iml
+scala_playground.iml
+.idea/
+out/
+.DS_Store
+target/
+.bloop/
+project/project/
