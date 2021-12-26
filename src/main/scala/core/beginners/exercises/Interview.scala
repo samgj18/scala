@@ -3,11 +3,12 @@ package exercises
 import exercises.AbstractClassVsTraits.RList.{RCons, REmpty}
 
 import scala.annotation.tailrec
+import javax.lang.model.element.Element
 
-/**
-  * Implement Option
+/** Implement Option
   *
-  * @tparam T: Generic parameter
+  * @tparam T:
+  *   Generic parameter
   */
 abstract class Maybe[+T] {
   def map[S](f: T => S): Maybe[S]
@@ -33,8 +34,7 @@ case class Just[T](value: T) extends Maybe[T] {
     if (f(value)) this else MaybeNot
 }
 
-/**
-  * Implement Either
+/** Implement Either
   */
 
 abstract class ThisOrThat[+T] {
@@ -43,9 +43,8 @@ abstract class ThisOrThat[+T] {
   def filter(f: T => Boolean): Maybe[T]
 }
 
-/**
-  * If we de-sugar a for comprehension what are we left with?
-  * By doing a desugar of a for comprehension we will end up with n - 1 flatMaps and a final map
+/** If we de-sugar a for comprehension what are we left with? By doing a desugar
+  * of a for comprehension we will end up with n - 1 flatMaps and a final map
   */
 object For {
   val numbers = List(1, 2, 3, 4)
@@ -63,16 +62,15 @@ object For {
   } yield c + "" + n + "-" + color
 }
 
-/**
-  * What is a sealed trait and what advantages can programs derive from its use?
-  * Sealed provides exhaustive checking for our application.
-  * Exhaustive checking allows to check that all members of a sealed trait must be declared in the same file as of the source file.
-  * Exhaustive checking is mostly used in type / pattern matching in scala
+/** What is a sealed trait and what advantages can programs derive from its use?
+  * Sealed provides exhaustive checking for our application. Exhaustive checking
+  * allows to check that all members of a sealed trait must be declared in the
+  * same file as of the source file. Exhaustive checking is mostly used in type
+  * / pattern matching in scala
   */
 
-/**
-  * What is the difference between trait and abstract class?
-  * Trait equivalent to interfaces in Java
+/** What is the difference between trait and abstract class? Trait equivalent to
+  * interfaces in Java
   */
 
 object AbstractClassVsTraits {
@@ -99,18 +97,13 @@ object AbstractClassVsTraits {
 
   // If you extend a SINGLE type, abstract classes and traits have little difference
 
-  /**
-    Differences:
-    * Can extend a SINGLE abstract class
-    * Can inherit from MULTIPLE traits
-    * Abstract classes can take constructor arguments: UNTIL SCALA 3
+  /** Differences: Can extend a SINGLE abstract class Can inherit from MULTIPLE
+    * traits Abstract classes can take constructor arguments: UNTIL SCALA 3
     */
   abstract class Pet(name: String)
   trait PetTrait
 
-  /**
-    * For good practice we represent "things" as classes
-    * "behaviours" as traits
+  /** For good practice we represent "things" as classes "behaviours" as traits
     */
 
   sealed trait RList[+A] {
