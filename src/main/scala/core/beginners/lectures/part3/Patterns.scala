@@ -72,8 +72,7 @@ object Patterns extends App {
     case List(_, element, _) if element % 2 == 0 => element
   }*/
 
-  /**
-    * Question
+  /** Question
     */
 
   val numbers = List(1, 2, 3)
@@ -84,20 +83,18 @@ object Patterns extends App {
   }
 
   // Big Idea #1
-  /**
-    * Catches are actually matches!
+  /** Catches are actually matches!
     */
   try {
     //Code
   } catch {
     case e: RuntimeException       => "Runtime"
     case npe: NullPointerException => "NPE"
-    case _                         => "Something else"
+    case _: Throwable              => "Something else"
   }
 
   // Big Idea #2
-  /**
-    * Generators are based on pattern matching
+  /** Generators are based on pattern matching
     */
   val aList = List(1, 2, 3, 4)
   val evenOnes = for {
@@ -111,8 +108,7 @@ object Patterns extends App {
   } yield first * second
 
   // Big Idea #3
-  /**
-    * Based on pattern matching
+  /** Based on pattern matching
     */
   val tuples = (1, 2, 3)
   val (a, b, c) = tuples
