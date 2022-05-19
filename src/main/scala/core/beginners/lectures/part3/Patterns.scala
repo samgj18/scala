@@ -2,21 +2,21 @@ package lectures.part3
 
 object Patterns extends App {
   // Constants
-  /*  val x: Any = "Hello Scala"
+  val x: Any = "Hello Scala"
   val constant = x match {
     case 1        => "A number"
     case "Scala"  => "A String"
     case true     => "A Boolean"
     case Patterns => "A Singleton object"
-  }*/
+  }
 
   // Match Anything
-  /*val matchAnything = x match {
+  val matchAnything = x match {
     case _ => "Whatever"
   }
   val matchVariable = x match {
     case something => s"I've found $something"
-  }*/
+  }
 
   // Tuples
   val aTuple = (1, 2)
@@ -32,7 +32,7 @@ object Patterns extends App {
 
   // Case Classes - Constructor Pattern
   // List Patterns
-  /*val aList: List[Int] = List(1, 2, 3, 4)
+  val aList: List[Int] = List(1, 2, 3, 4)
   val matchList = aList match {
     case Nil => "List is empty"
     case ::(head, tl) =>
@@ -70,7 +70,7 @@ object Patterns extends App {
   // If Guards
   val matchIfGuards = aList match {
     case List(_, element, _) if element % 2 == 0 => element
-  }*/
+  }
 
   /** Question
     */
@@ -96,9 +96,9 @@ object Patterns extends App {
   // Big Idea #2
   /** Generators are based on pattern matching
     */
-  val aList = List(1, 2, 3, 4)
+  val aNewList = List(1, 2, 3, 4)
   val evenOnes = for {
-    even <- aList if even % 2 == 0
+    even <- aNewList if even % 2 == 0
   } yield even * 10
 
   val tuple = List((1, 2), (3, 4))
