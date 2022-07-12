@@ -16,11 +16,11 @@ trait MySet[A] extends (A => Boolean) {
   def -(elem: A): MySet[A]
   def --(anotherSet: MySet[A]): MySet[A]
   def &(anotherSet: MySet[A]): MySet[A]
+
+  def unary_! : MySet[A]
 }
 
-class EmptySet[A] extends MySet[A] {
-
-  self =>
+class EmptySet[A] extends MySet[A] { self =>
   override def ++(anotherSet: MySet[A]): MySet[A] = anotherSet
 
   override def filter(predicate: A => Boolean): MySet[A] = self
@@ -38,11 +38,30 @@ class EmptySet[A] extends MySet[A] {
   override def --(anotherSet: MySet[A]): MySet[A] = self
 
   override def &(anotherSet: MySet[A]): MySet[A] = self
+
+  override def unary_! : MySet[A] = new AllInclusiveSet[A]
+
 }
 
-class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
+class AllInclusiveSet[A] extends MySet[A] {
 
-  self =>
+  override def contains(elem: A): Boolean = true
+  override def +(elem: A): MySet[A] = this
+  override def ++(anotherSet: MySet[A]): MySet[A] = this
+
+  override def map[B](f: A => B): MySet[B] = ???
+  override def flatMap[B](f: A => MySet[B]): MySet[B] = ???
+  override def filter(predicate: A => Boolean): MySet[A] = ???
+
+  override def -(elem: A): MySet[A] = ???
+  override def --(anotherSet: MySet[A]): MySet[A] = ???
+  override def &(anotherSet: MySet[A]): MySet[A] = ???
+
+  override def unary_! : MySet[A] = ???
+
+}
+
+class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] { self =>
   override def contains(elem: A): Boolean = elem == head || tail.contains(elem)
 
   override def ++(anotherSet: MySet[A]): MySet[A] = tail ++ anotherSet + head
@@ -67,6 +86,8 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] {
     self.filter(x => !anotherSet(x))
 
   override def &(anotherSet: MySet[A]): MySet[A] = self.filter(anotherSet)
+
+  override def unary_! : MySet[A] = filter(self)
 }
 
 object MySet {
