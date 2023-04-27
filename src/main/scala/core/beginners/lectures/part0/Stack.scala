@@ -14,6 +14,19 @@ package lectures.part0
   * ------------
   * ------------
   *
+  * # How it works?
+  *
+  *   - A pointer called TOP is used to keep track of the top element in the
+  *     stack.
+  *   - When initializing the stack, we set its value to -1 so that we can check
+  *     if the stack is empty by comparing TOP == -1.
+  *   - On pushing an element, we increase the value of TOP and place the new
+  *     element in the position pointed to by TOP.
+  *   - On popping an element, we return the element pointed to by TOP and
+  *     reduce its value.
+  *   - Before pushing, we check if the stack is already full
+  *   - Before popping, we check if the stack is already empty
+  *
   * Here you add a plate on top OR remove the top plate.
   *
   * # Operations
@@ -62,7 +75,7 @@ class Stack[A](size: Int) {
   def pop: A = {
     if (isEmpty) throw new NoSuchElementException("Stack is empty")
     else {
-      val head = arr(top) // Same as arr.last
+      val head = arr(top)
       top = top - 1
       arr = arr.init
       head
