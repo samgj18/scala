@@ -1,3 +1,5 @@
+package catsstuff
+
 import cats.effect.Sync
 
 // This pattern is used for HKTs
@@ -67,4 +69,59 @@ object Run extends App {
   println(1.add(2))
   println("a".add("b"))
   println(List(1, 2).add(List(3, 4)))
+}
+
+object TypeClasses extends App {
+  // We do it to add capabilities to existing types
+  final case class Person(name: String)
+
+  // 1. Typeclass definition
+  trait JSONSerializer[T] {
+    def toJSON(t: T): String
+  }
+
+  // 2. Create implicit typeclass instances
+  implicit object PersonJSONSerializer extends JSONSerializer[Person] {
+    def toJSON(person: Person): String =
+      s"""
+         |{"name": "${person.name}"}
+         |""".stripMargin
+  }
+
+  implicit object StringJSONSerializer extends JSONSerializer[String] {
+    def toJSON(str: String): String =
+      s"""
+         |{"str": "$str"}
+         |""".stripMargin
+  }
+
+  implicit object IntJSONSerializer extends JSONSerializer[Int] {
+    def toJSON(int: Int): String =
+      s"""
+         |{"int": "$int"}
+         |""".stripMargin
+  }
+
+  // 3. Offer some API
+  def convertToJSON[T](value: T)(implicit
+      serializer: JSONSerializer[T]
+  ): String =
+    serializer.toJSON(value)
+
+  // 4. Extend existing types via extension methods
+  object JSONSyntax {
+    implicit class JSONSerializableOps[T](value: T)(implicit
+        serializer: JSONSerializer[T]
+    ) {
+      def toJSON: String =
+        serializer.toJSON(value)
+    }
+  }
+
+  // 4. Use API
+  import JSONSyntax._
+
+  println(convertToJSON(Person("John")))
+  println(Person("John").toJSON)
+
 }
