@@ -17,6 +17,8 @@ object Advance extends App {
   // We can turn it into a function
   val function: (Int => Int) = partialFunction
 
+  // partialFunction(0) // throw a MatchError
+
   // We can also lift a function
   // Turning a partial to a total function
   val lifted = partialFunction.lift
