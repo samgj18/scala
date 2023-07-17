@@ -25,6 +25,7 @@ version := "1.0"
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2"
 libraryDependencies += "org.typelevel" %% "cats-effect" % "3.3.1"
+libraryDependencies += "com.typesafe.akka" %% "akka-actor-typed" % "2.8.3"
 
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the scala-parser-combinators dependency to the set of dependencies
