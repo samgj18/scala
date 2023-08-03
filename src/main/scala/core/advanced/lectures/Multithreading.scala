@@ -12,10 +12,8 @@ object Multithreading extends App {
   aThread.start()
   aThread.join()
 
-  val threadHello = new Thread(() => (1 to 1000).foreach(_ => println("Hello")))
-  val threadGoodbye = new Thread(() =>
-    (1 to 1000).foreach(_ => println("Goodbye"))
-  )
+  val threadHello   = new Thread(() => (1 to 1000).foreach(_ => println("Hello")))
+  val threadGoodbye = new Thread(() => (1 to 1000).foreach(_ => println("Goodbye")))
 
   threadHello.start()
   threadGoodbye.start()
@@ -49,7 +47,7 @@ object Multithreading extends App {
   }
 
   aFuture.onComplete {
-    case Success(value) => println(s"Got the callback, meaning = $value")
+    case Success(value)     => println(s"Got the callback, meaning = $value")
     case Failure(exception) =>
       println(s"Got the callback, exception = $exception")
   }
@@ -61,7 +59,7 @@ object Multithreading extends App {
   val futureFromPromise = aPromise.success(42).future
 
   futureFromPromise.onComplete {
-    case Success(value) => println(s"Got the callback, meaning = $value")
+    case Success(value)     => println(s"Got the callback, meaning = $value")
     case Failure(exception) =>
       println(s"Got the callback, exception = $exception")
   }

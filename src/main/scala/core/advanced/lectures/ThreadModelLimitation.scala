@@ -40,7 +40,7 @@ object ThreadModelLimitation extends App {
 
   // 2. Delegating something to a thread is a PAIN
   // you have a running thread and you want to pass a runnable to that thread
-  var task: Runnable = null
+  var task: Runnable        = null
   val runningThread: Thread = new Thread(() => {
     while (true) {
       while (task == null) {

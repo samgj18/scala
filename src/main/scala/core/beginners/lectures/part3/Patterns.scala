@@ -2,7 +2,7 @@ package lectures.part3
 
 object Patterns extends App {
   // Constants
-  val x: Any = "Hello Scala"
+  val x: Any   = "Hello Scala"
   val constant = x match {
     case 1        => "A number"
     case "Scala"  => "A String"
@@ -19,13 +19,13 @@ object Patterns extends App {
   }
 
   // Tuples
-  val aTuple = (1, 2)
+  val aTuple     = (1, 2)
   val matchTuple = aTuple match {
     case (1, 1)         => "(1, 1) tuple"
     case (something, 2) => s"Extract $something in the pattern matches"
   }
 
-  val nestedTuple = (1, (2, 3))
+  val nestedTuple      = (1, (2, 3))
   val matchNestedTuple = nestedTuple match {
     case (_, (2, v)) => s"Pattern matching powerful $v, because can be nested"
   }
@@ -33,16 +33,16 @@ object Patterns extends App {
   // Case Classes - Constructor Pattern
   // List Patterns
   val aList: List[Int] = List(1, 2, 3, 4)
-  val matchList = aList match {
-    case Nil => "List is empty"
+  val matchList        = aList match {
+    case Nil          => "List is empty"
     case ::(head, tl) =>
       s"None empty list with head: $head, and tail length: ${tl.length}"
   }
 
   val matchStandardList = aList match {
-    case List(1, _, _)       => 1 // Extractor - Advanced
-    case List(1, _*)         => // VarArg -> List of arbitrary length - Advanced
-    case 1 :: List(_)        => 1 // Infix Pattern
+    case List(1, _, _)       => 1  // Extractor - Advanced
+    case List(1, _*)         =>    // VarArg -> List of arbitrary length - Advanced
+    case 1 :: List(_)        => 1  // Infix Pattern
     case List(1, 2, 3) :+ 42 => 42 // Infix Pattern
   }
 
@@ -75,11 +75,11 @@ object Patterns extends App {
   /** Question
     */
 
-  val numbers = List(1, 2, 3)
+  val numbers      = List(1, 2, 3)
   val matchNumbers = numbers match {
     case list: List[Int] => "A list of ints"
     //case listOfString: List[String] => "A list of strings" => JVM deletes because of erasure
-    case _ => ""
+    case _               => ""
   }
 
   // Big Idea #1
@@ -110,6 +110,6 @@ object Patterns extends App {
   // Big Idea #3
   /** Based on pattern matching
     */
-  val tuples = (1, 2, 3)
+  val tuples    = (1, 2, 3)
   val (a, b, c) = tuples
 }

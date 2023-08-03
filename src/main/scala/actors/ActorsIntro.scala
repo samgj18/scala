@@ -37,7 +37,7 @@ object ActorsIntro extends App {
   // You can't instantiate an actor by calling new WordCountActor
   // You have to use the actor system
   // WordCountActor is a singleton
-  val wordCounter: ActorRef =
+  val wordCounter: ActorRef        =
     actorSystem.actorOf(Props[WordCountActor], "wordCounter")
   val anotherWordCounter: ActorRef =
     actorSystem.actorOf(Props[WordCountActor], "anotherWordCounter")

@@ -10,7 +10,7 @@ trait Log[F[_]] {
 object Log {
   // Summoner pattern
   // This is a way to create instances of Log
-  def apply[F[_]: Log]: Log[F] =
+  def apply[F[_]: Log]: Log[F]                =
     implicitly[Log[F]]
 
   implicit def forConsole[F[_]: Sync]: Log[F] =
@@ -28,7 +28,7 @@ trait Loggable[A] {
 object Loggable {
   // Summoner pattern
   // This is a way to create instances of Loggable
-  def apply[A: Loggable]: Loggable[A] =
+  def apply[A: Loggable]: Loggable[A]      =
     implicitly[Loggable[A]]
 
   implicit val forString: Loggable[String] =
@@ -51,8 +51,7 @@ object Addable {
 
   implicit val stringAddable: Addable[String] = (a: String, b: String) => a + b
 
-  implicit def listAddable[A]: Addable[List[A]] = (a: List[A], b: List[A]) =>
-    a ++ b
+  implicit def listAddable[A]: Addable[List[A]] = (a: List[A], b: List[A]) => a ++ b
 
   implicit class AddableOps[A: Addable](a: A) {
     def add(b: A): A = Addable[A].add(a, b)
@@ -95,7 +94,7 @@ object TypeClasses extends App {
          |""".stripMargin
   }
 
-  implicit object IntJSONSerializer extends JSONSerializer[Int] {
+  implicit object IntJSONSerializer    extends JSONSerializer[Int]    {
     def toJSON(int: Int): String =
       s"""
          |{"int": "$int"}

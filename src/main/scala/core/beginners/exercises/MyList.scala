@@ -53,7 +53,7 @@ object ListTest extends App {
 // Alternative not OO implemetation
 
 sealed trait NotOOList[+A] {
-  def head: A =
+  def head: A            =
     this match {
       case NotOOList.::(head, _) => head
       case NotOOList.Empty       => throw new NoSuchElementException
@@ -70,8 +70,7 @@ sealed trait NotOOList[+A] {
 }
 
 object NotOOList {
-  final case class ::[A](override val head: A, override val tail: NotOOList[A])
-      extends NotOOList[A] {
+  final case class ::[A](override val head: A, override val tail: NotOOList[A]) extends NotOOList[A]       {
     override def map[B](f: A => B): NotOOList[B] = ???
 
     override def flatMap[B](f: A => NotOOList[B]): NotOOList[B] = ???
@@ -80,7 +79,7 @@ object NotOOList {
 
     override def isEmpty: Boolean = false
   }
-  case object Empty extends NotOOList[Nothing] {
+  case object Empty                                                             extends NotOOList[Nothing] {
     override def head: Nothing = throw new NoSuchElementException
 
     override def tail: NotOOList[Nothing] = throw new NoSuchElementException

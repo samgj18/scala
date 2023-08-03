@@ -3,22 +3,17 @@ package lectures.part2
 object Objects extends App {
   //Scala does not have Class Level Functionality ("static")
 
-  /**
-    * Objects are their own type (Person in this case)
-    * and their only instance
+  /** Objects are their own type (Person in this case) and their only instance
     */
 
-  /**
-    * Having an object and a class with the same name in the same file
-    * or scope is called Companions.
+  /** Having an object and a class with the same name in the same file or scope is called Companions.
     *
-    * Benefits: The whole code will reside in either a class or a Singleton
-    * Object.
+    * Benefits: The whole code will reside in either a class or a Singleton Object.
     */
-  object Person { //Objects do not receive parameters
+  object Person                  { //Objects do not receive parameters
     // "Static"/ "Class" - Level Functionality
 
-    val N_EYES = 2 //Class level functionality
+    val N_EYES          = 2 //Class level functionality
     def canFly: Boolean = false
 
     def apply(mother: Person, father: Person): Person =

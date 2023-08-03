@@ -43,7 +43,7 @@ object EmptyGeneric extends GenericMyList[Nothing] {
   override def add[B >: Nothing](element: B): GenericMyList[B] =
     new GenericCons(element, EmptyGeneric)
 
-  override def printElements: String = ""
+  override def printElements: String                           = ""
 
   override def map[B](
       transformer: Nothing => B
@@ -56,7 +56,7 @@ object EmptyGeneric extends GenericMyList[Nothing] {
   override def filter(predicate: Nothing => Boolean): GenericMyList[Nothing] =
     EmptyGeneric
 
-  override def ++[B >: Nothing](list: GenericMyList[B]): GenericMyList[B] = list
+  override def ++[B >: Nothing](list: GenericMyList[B]): GenericMyList[B]    = list
 
   override def foreach(f: Nothing => Unit): Unit = ()
 
@@ -72,7 +72,7 @@ object EmptyGeneric extends GenericMyList[Nothing] {
     else EmptyGeneric
   }
 
-  override def fold[B](start: B)(operator: (B, Nothing) => B): B = start
+  override def fold[B](start: B)(operator: (B, Nothing) => B): B          = start
 }
 
 class GenericCons[+A](h: A, t: GenericMyList[A]) extends GenericMyList[A] {
@@ -110,7 +110,7 @@ class GenericCons[+A](h: A, t: GenericMyList[A]) extends GenericMyList[A] {
   override def map[B](transformer: A => B): GenericMyList[B] =
     new GenericCons[B](transformer(h), t.map(transformer))
 
-  override def printElements: String =
+  override def printElements: String                         =
     if (t.isEmpty) "" + h
     else h + ", " + t.printElements
 
@@ -127,12 +127,12 @@ class GenericCons[+A](h: A, t: GenericMyList[A]) extends GenericMyList[A] {
       transformer: A => GenericMyList[B]
   ): GenericMyList[B] = transformer(h) ++ t.flatMap(transformer)
 
-  override def foreach(f: A => Unit): Unit = {
+  override def foreach(f: A => Unit): Unit                 = {
     f(h)
     t.foreach(f)
   }
 
-  override def sort(f: (A, A) => Int): GenericMyList[A] = {
+  override def sort(f: (A, A) => Int): GenericMyList[A]    = {
     def insert(a: A, sorted: GenericMyList[A]): GenericMyList[A] = {
       if (sorted.isEmpty) new GenericCons(a, EmptyGeneric)
       else if (f(a, sorted.head) <= 0) new GenericCons(a, sorted)
@@ -178,7 +178,7 @@ trait MyTransformer[-A, B] { // Function type from A => B
 }
 
 object ListTestGeneric extends App {
-  val listOfInt: GenericMyList[Int] =
+  val listOfInt: GenericMyList[Int]        =
     new GenericCons[Int](
       1,
       new GenericCons[Int](2, new GenericCons[Int](3, EmptyGeneric))
@@ -196,7 +196,7 @@ object ListTestGeneric extends App {
 
   // This works because of the definitions of our maps, flatMaps and filter
   val combinations = for {
-    n <- listOfInt
+    n      <- listOfInt
     string <- listOfStrings
   } yield n + "-" + string
 

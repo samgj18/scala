@@ -2,11 +2,10 @@ package lectures.part0
 
 /** # Queue Data Structure
   *
-  * A `Queue` is a `linear data structure` that follows the principle <b>First
-  * In First Out</b> [FIFO].This means that the first inserted element is the
+  * A `Queue` is a `linear data structure` that follows the principle <b>First In First Out</b> [FIFO].This means that
+  * the first inserted element is the
   *
-  * A good representation of a Queue is a queue in the bank, first who get the
-  * ticket is the first to get called
+  * A good representation of a Queue is a queue in the bank, first who get the ticket is the first to get called
   *
   * ```
   * -o   o   o   o   o
@@ -23,8 +22,7 @@ package lectures.part0
   *
   * # Operations
   *
-  * A queue is an object (an abstract data structure - ADT) that allows the
-  * following operations:
+  * A queue is an object (an abstract data structure - ADT) that allows the following operations:
   *
   *   - Enqueue: Add an element to the end of the queue
   *   - Dequeue: Remove an element from the front of the queue
@@ -35,10 +33,10 @@ package lectures.part0
 
 class Queue[A](size: Int) {
 
-  private var rear = -1
+  private var rear  = -1
   private var front = -1
   // Might as well be a mutable one
-  private var arr = List.empty[A]
+  private var arr   = List.empty[A]
 
   def isFull: Boolean = size == arr.size
 

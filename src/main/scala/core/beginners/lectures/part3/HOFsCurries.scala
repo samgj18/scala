@@ -8,8 +8,7 @@ object HOFsCurries extends App {
   // map, flatMap, filter (HOFs)
 
   // Function that applies n times another function over a given value
-  /**
-    * nTimes(f, n, x)
+  /** nTimes(f, n, x)
     */
   @tailrec
   def nTimes(f: Int => Int, n: Int, x: Int): Int =
@@ -28,8 +27,7 @@ object HOFsCurries extends App {
 
   // Curried Functions
   val superSum: Int => (Int => Int) =
-    (x: Int) =>
-      (y: Int) => x + y // val superSum: Int => (Int => Int) = x => y => x + y
+    (x: Int) => (y: Int) => x + y // val superSum: Int => (Int => Int) = x => y => x + y
 
   val sum3 = superSum(3) // x => 3 + x
   println(sum3(3))
@@ -40,31 +38,24 @@ object HOFsCurries extends App {
     c.format(x)
 
   val standardFormat: (Double => String) = curriedFormat("%4.2f")
-  val preciseFormat: (Double => String) = curriedFormat("%10.8f")
+  val preciseFormat: (Double => String)  = curriedFormat("%10.8f")
 
   println(standardFormat(Math.PI))
   println(preciseFormat(Math.PI))
 
-  /**
-    * 1. Expand GenericMyList
-          - foreach function A => Unit
-            [1, 2, 3].foreach(x => println(x))
-
-          - sort function ((A, A) => Int) => GenericMyList
-            [1, 2, 3].sort((x, y) => y - x) => [3, 2, 1]
-
-          - zipWith (list, (A, A) =>B) => GenericMyList[B]
-            [1, 2, 3].zipWith([4, 5, 6], x * y) => [1 * 4, 2 * 5, 3 * 6] = [4, 10, 18]
-
-          - fold(start)(function) => value
-            [1, 2, 3].fold(0)(x + y) = 6
-
-    * 2. toCurry(f: (Int, Int) => Int): (Int => Int => Int)
-         fromCurry(f: (Int => Int => Int)) => (Int, Int) => Int
-
-
-    * 3. compose(f, g) => x => f(g(x))
-         andThen(f, g) => x => g(f(x))
+  /**   1. Expand GenericMyList
+    *   - foreach function A => Unit [1, 2, 3].foreach(x => println(x))
+    *
+    *   - sort function ((A, A) => Int) => GenericMyList [1, 2, 3].sort((x, y) => y - x) => [3, 2, 1]
+    *
+    *   - zipWith (list, (A, A) =>B) => GenericMyList[B] [1, 2, 3].zipWith([4, 5, 6], x * y) => [1 * 4, 2 * 5, 3 * 6] =
+    *     [4, 10, 18]
+    *
+    *   - fold(start)(function) => value [1, 2, 3].fold(0)(x + y) = 6
+    *
+    * 2. toCurry(f: (Int, Int) => Int): (Int => Int => Int) fromCurry(f: (Int => Int => Int)) => (Int, Int) => Int
+    *
+    * 3. compose(f, g) => x => f(g(x)) andThen(f, g) => x => g(f(x))
     */
 
   def toCurry(f: (Int, Int) => Int): (Int => Int => Int) = x => y => f(x, y)

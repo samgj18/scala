@@ -41,16 +41,13 @@ object Exceptions extends App {
 
   val exception = new MyException
 
-  /**
-    * 1. Crash your program with an OutOfMemoryError
-    * 2. Crash with SOError
-    * 3. PocketCalculator
-    *  - add(x, y)
-    *  - subtract(x, y)
-    *  - multiply(x, y)
-    *  - divide(x,y)
+  /**   1. Crash your program with an OutOfMemoryError 2. Crash with SOError 3. PocketCalculator
+    *      - add(x, y)
+    *      - subtract(x, y)
+    *      - multiply(x, y)
+    *      - divide(x,y)
     *
-    *  Throw
+    * Throw
     *   - OverflowException if add(x,y) exceeds Int.MAX_VALUE
     *   - UnderflowException if subtract(x,y) exceeds Int.MIN_VALUE
     *   - MathCalculationException for division by 0
@@ -64,7 +61,7 @@ object Exceptions extends App {
 
   // val noLimit = infinite
 
-  class OverflowException extends RuntimeException
+  class OverflowException  extends RuntimeException
   class UnderflowException extends RuntimeException
 
   object PocketCalculator {

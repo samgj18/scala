@@ -17,9 +17,8 @@ object Expressions extends App {
   aVariable += 3
 
   // Instructions (DO) vs Expressions (Value)
-  val aCondition = true
+  val aCondition      = true
   val aConditionValue = if (aCondition) 5 else 3 // IF EXPRESSION
-
 
   var i = 0
   while (i < 0) { // Never write this again
@@ -41,6 +40,5 @@ object Expressions extends App {
 
     if (z > 2) "Hello" else "GoodBye"
   }
-
 
 }

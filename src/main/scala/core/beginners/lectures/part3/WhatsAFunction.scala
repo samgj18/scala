@@ -22,12 +22,11 @@ object WhatsAFunction extends App {
   /*
     All Scala functions are objects
    */
-  /**
-    * 1. Write a function that takes two strings a concatenates them
-    * 2. Transform myPredicate and myTransformer into function types
-    * 3. Define a function which takes an int and returns another function which takes an int and returns another int
-          - What's the type of the function?
-          - How to do it?
+  /**   1. Write a function that takes two strings a concatenates them 2. Transform myPredicate and myTransformer into
+    *      function types 3. Define a function which takes an int and returns another function which takes an int and
+    *      returns another int
+    *   - What's the type of the function?
+    *   - How to do it?
     */
   def concatenate: (String, String) => String =
     new Function2[String, String, String] {
@@ -47,7 +46,7 @@ object WhatsAFunction extends App {
   println(adder3(4)) // Result is 7
   println(
     superSum(3)(8)
-  ) // Result is 11 => CURRIED FUNCTION: Function that takes parameters and return another function that receives
+  )                  // Result is 11 => CURRIED FUNCTION: Function that takes parameters and return another function that receives
 }
 
 trait MyFunction[A, B] {

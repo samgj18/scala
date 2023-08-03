@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 object Recap extends App {
-  val aCondition = true
+  val aCondition        = true
   val aConditionedValue = if (aCondition) 5 else 3
 
   // Instructions (vs Expressions)
@@ -97,21 +97,21 @@ object Recap extends App {
 
   // for-comprehensions
   val pairs = for {
-    num <- List(1, 2, 3) // num is the name of the iterator variable
+    num <- List(1, 2, 3)   // num is the name of the iterator variable
     char <- List('a', 'b', 'c')
   } yield num + "-" + char // yield is the name of the result variable
 
   // Scala Collections: Seqs, Arrays, Lists, Vectors, Maps, Tuples
   val aMap = Map(
     "Daniel" -> 789,
-    "Jess" -> 555
+    "Jess"   -> 555
   )
 
   // "collections": Options, Try
   val anOption = Some(2)
 
   // Pattern Matching
-  val x = 2
+  val x     = 2
   val order = x match {
     case 1 => "first"
     case 2 => "second"

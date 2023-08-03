@@ -17,11 +17,11 @@ object MethodNotations extends App {
     def apply(): String = s"Hi my name is $name"
 
     def hangoutWith(nickname: String): Person = new Person(s"${this.name} the ($nickname)", this.favoriteMovie)
-    
+
     def learns(subject: String): String = s"${this.name} learns $subject"
-    
+
     def learnScala = learns("Scala")
-    
+
     def apply(number: Int): String = s"${this.name} watch her favorite movie inception $number times."
   }
 
@@ -45,7 +45,7 @@ object MethodNotations extends App {
   println(!mary)
   println(mary.unary_!)
 
-  // The unary_prefix only work with few operators 
+  // The unary_prefix only work with few operators
 
   // Postfix notation: Works with function that receives no parameters
 
@@ -56,26 +56,21 @@ object MethodNotations extends App {
   println(mary.apply)
   println(mary())
 
-  /**
-   * 1. Overload the hangoutWith operator 
-   * mary hangoutWith "the rockstar" => new Person("Mary (the rockstar)")
-   *
-   * 2. Add an age to the Person class with default of 0. 
-   * Add unary + operator => returns new person with age + 1
-   *
-   * 3. Add a learns method in the Person class => Mary learns $string
-   *
-   * 4. Add a learnsScala method, calls learns method with "Scala".
-   * Use it in post notation.
-   *
-   * 5. Overload apply method => mary.apply(2) => "Mary watch her favorite movie inception 2 times."
-   *
-   */
+  /**   1. Overload the hangoutWith operator mary hangoutWith "the rockstar" => new Person("Mary (the rockstar)")
+    *
+    * 2. Add an age to the Person class with default of 0. Add unary + operator => returns new person with age + 1
+    *
+    * 3. Add a learns method in the Person class => Mary learns $string
+    *
+    * 4. Add a learnsScala method, calls learns method with "Scala". Use it in post notation.
+    *
+    * 5. Overload apply method => mary.apply(2) => "Mary watch her favorite movie inception 2 times."
+    */
 
-  // 1. Overload the hangoutWith operator 
-  println((mary hangoutWith "rockstar") ())
+  // 1. Overload the hangoutWith operator
+  println((mary hangoutWith "rockstar")())
   println((+mary).age) // Returns 1
-  println(+mary.age) // Returns 1
+  println(+mary.age)   // Returns 1
   println(mary learnScala)
 
 }

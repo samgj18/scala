@@ -6,14 +6,14 @@ object TuplesAndMaps extends App {
   // Tuples: Finite ordered like "List"
   val aTuple = Tuple2(2, "Hello Scala") // Tuple[Int, String] = (Int, String)
 
-  println(aTuple._1) // 2
+  println(aTuple._1)   // 2
   println(aTuple.copy(_2 = "Bye Java"))
   println(aTuple.swap) // ("Hello Scala", 2)
 
   // Maps - keys -> values
 
   val aMap: Map[String, Int] = Map()
-  val phoneBook =
+  val phoneBook              =
     Map(("Jim", 555), "Daniel" -> 789, "JIM" -> 291)
       .withDefaultValue(-1) // "Daniel" -> 789 == ("Daniel", 789)
 
@@ -24,7 +24,7 @@ object TuplesAndMaps extends App {
   println(phoneBook("Jim"))
   println(phoneBook("No existing key"))
 
-  val pairing = "Mary" -> 678
+  val pairing      = "Mary" -> 678
   val newPhoneBook = phoneBook + pairing
   println(newPhoneBook)
 
@@ -43,20 +43,17 @@ object TuplesAndMaps extends App {
   val names = List("Bob", "James", "Angela", "Daniel", "Jim")
   println(names.groupBy(_.charAt(0)))
 
-  /**
-    * 1. What would happen if I had two original entries "Jim" -> 555 and "JIM" -> 900?
-    *         Depending who I put at the end of the map that'll remain as the last value
-    * 2. Overly simplified social network based on maps
-    *    Person: String
-    *       - add person to the network
-    *       - remove
-    *       - friend (mutual)
-    *       - unfriend
+  /**   1. What would happen if I had two original entries "Jim" -> 555 and "JIM" -> 900? Depending who I put at the end
+    *      of the map that'll remain as the last value 2. Overly simplified social network based on maps Person: String
+    *      - add person to the network
+    *      - remove
+    *      - friend (mutual)
+    *      - unfriend
     *
-    *       - numbers of friends
-    *       - person with most friends
-    *       - how many people have no friends
-    *       - is there a social connection between two people
+    *   - numbers of friends
+    *   - person with most friends
+    *   - how many people have no friends
+    *   - is there a social connection between two people
     */
 
   case class Person(name: String)

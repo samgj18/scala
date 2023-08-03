@@ -11,15 +11,15 @@ object CatsIntro extends App {
   import cats.instances.int._
 
   // Part 3 - Use the TC API
-  val intEquality = Eq[Int]
+  val intEquality         = Eq[Int]
   val aTypeSafeComparison = intEquality.eqv(2, 3) // false
   // val anUnsafeComparison = intEquality.eqv(2, "a string") // does not compile
-  
+
   // Part 4 - Use extension methods (if applicable)
   import cats.syntax.eq._
 
   val anotherTypeSafeComparison = 2 === 3 // false
-  val neqComparison = 2 =!= 3 // true
+  val neqComparison             = 2 =!= 3 // true
   // val invalidComparison = 2 === "a string" // does not compile
 
   // Part 5 - Extend the TC with implicit
@@ -27,7 +27,7 @@ object CatsIntro extends App {
 
   // There's no need to import cats.instances.list._ because it is now embedded in
   // cats.syntax.eq._
-  
+
   case class ToyCar(model: String, price: BigDecimal)
 
   implicit val toyCarEq: Eq[ToyCar] = Eq.instance[ToyCar] { (car1, car2) =>
@@ -39,5 +39,3 @@ object CatsIntro extends App {
 
   println(toyCar1 === toyCar2) // true
 }
-
-

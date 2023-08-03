@@ -55,7 +55,7 @@ object AMonoid extends App {
 
   // Monoids can also be constructed using the Monoid trait.
   implicit val productMonoid: Monoid[Int] = new Monoid[Int] {
-    def empty: Int = 1
+    def empty: Int                   = 1
     def combine(x: Int, y: Int): Int = x * y
   }
 

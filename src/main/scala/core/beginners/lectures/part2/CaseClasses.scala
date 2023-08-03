@@ -23,7 +23,7 @@ object CaseClasses extends App {
   // 5. CCs have companion objects
 
   val thePerson = Person
-  val mary = Person("Mary", 43)
+  val mary      = Person("Mary", 43)
 
   // 6. CCs are serializable
 

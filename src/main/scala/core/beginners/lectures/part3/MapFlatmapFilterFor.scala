@@ -15,15 +15,13 @@ object MapFlatmapFilterFor extends App {
   // Print all combinations between two lists
 
   val numbers = List(1, 2, 3, 4)
-  val chars = List('a', 'b', 'c', 'd')
-  val colors = List("Black", "White")
+  val chars   = List('a', 'b', 'c', 'd')
+  val colors  = List("Black", "White")
 
   // Functional Iteration
   val combinations = numbers.flatMap(n => chars.map(c => c + "-" + n))
 
-  val combinationOfThree = numbers.flatMap(n =>
-    chars.flatMap(c => colors.map(color => c + "-" + n + "-" + color))
-  )
+  val combinationOfThree = numbers.flatMap(n => chars.flatMap(c => colors.map(color => c + "-" + n + "-" + color)))
 
   println(combinations)
   println(combinationOfThree)
@@ -35,7 +33,7 @@ object MapFlatmapFilterFor extends App {
 
   val forCombinations = for {
     n <- numbers if n % 2 == 0 // This is called a guard
-    c <- chars
+    c     <- chars
     color <- colors
   } yield c + "" + n + "-" + color
 
@@ -51,15 +49,10 @@ object MapFlatmapFilterFor extends App {
     x * 2
   }
 
-  /**
-    * MyGenericList supports for comprehensions
-      In order to accept for comprehensions the big three must have a special signature
-      map(f: A => B): MyList[B]
-      filter(p: A => Boolean): MyList[A]
-      flatMap(f: A => MyList[B]): MyList[B]
-      Answer: Yes
-    * A small collection of at most one element - Maybe[+T]
-        - map, flatMap, filter
+  /** MyGenericList supports for comprehensions In order to accept for comprehensions the big three must have a special
+    * signature map(f: A => B): MyList[B] filter(p: A => Boolean): MyList[A] flatMap(f: A => MyList[B]): MyList[B]
+    * Answer: Yes A small collection of at most one element - Maybe[+T]
+    *   - map, flatMap, filter
     */
 
 }

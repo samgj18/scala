@@ -2,10 +2,9 @@ package lectures.part2
 
 object Monads extends App {
 
-  /**
-    * Monad:
-    * 1. Ability to wrap a value into another type
-    * 2. Ability to transform that type into another kind of the same type
+  /** Monad:
+    *   1. Ability to wrap a value into another type 2. Ability to transform that type into another kind of the same
+    *      type
     */
   case class SafeValue[+T](private val internalValue: T) { // "Constructor" = pure, unit
     def get: T =
@@ -24,14 +23,13 @@ object Monads extends App {
 
   val safeString: SafeValue[String] = gimmeSomeValue("Scala is awesome")
   // Extract
-  val string = safeString.get
+  val string                        = safeString.get
   // Transform
-  val upperString = string.toUpperCase()
+  val upperString                   = string.toUpperCase()
   // Wrap
-  val upperSafeString = SafeValue(upperString)
+  val upperSafeString               = SafeValue(upperString)
 
-  /**
-    * Pattern: ETW
+  /** Pattern: ETW
     */
   // Compressing into one line of code
   val upperSafeString2 = safeString.transform(s => SafeValue(s.toUpperCase()))
@@ -75,7 +73,7 @@ object Monads extends App {
 
   // Left Identity => Monad(x).flatMap(f) == f(x)
   def twoConsecutive(x: Int): Seq[Int] = List(x, x + 1)
-  twoConsecutive(3) // List(3, 4)
+  twoConsecutive(3)               // List(3, 4)
   List(3).flatMap(twoConsecutive) // List(3, 4)
 
   // Right Identity => Monad(v).flatMap(x => Monad(x)) == Monad(v)
@@ -83,8 +81,8 @@ object Monads extends App {
 
   // Associativity ETW => Monad(v).flatMap(f).flatMap(g) == Monad(v).flatMap(x => f(x).flatMap(g))
   val incrementer = (x: Int) => List(x, x + 1)
-  val doubler = (x: Int) => List(x, 2 * x)
-  val numbers = List(1, 2, 3)
+  val doubler     = (x: Int) => List(x, 2 * x)
+  val numbers     = List(1, 2, 3)
 
   // Equals
   numbers.flatMap(incrementer).flatMap(doubler)

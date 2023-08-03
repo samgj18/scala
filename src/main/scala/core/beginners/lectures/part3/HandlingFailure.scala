@@ -26,7 +26,7 @@ object HandlingFailure extends App {
 
   // orElse
   def backupMethod: String = "A valid result"
-  val fallbackTry = Try(unsafeMethod) orElse Try(backupMethod)
+  val fallbackTry          = Try(unsafeMethod) orElse Try(backupMethod)
   println(fallbackTry)
 
   // If you design an API
@@ -40,11 +40,10 @@ object HandlingFailure extends App {
   println(aSuccess.flatMap(n => Success(n * 10)))
   println(aSuccess.filter(_ > 10)) // Turn into a failure
 
-  /**
-    * Exercise
+  /** Exercise
     */
   val hostName = "localhost"
-  val port = "8080"
+  val port     = "8080"
 
   def renderHTML(page: String): Unit = println(page)
   class Connection {
@@ -56,7 +55,7 @@ object HandlingFailure extends App {
   }
 
   object HttpService {
-    val random = new Random(System.nanoTime)
+    val random                                                = new Random(System.nanoTime)
     def getConnection(host: String, Port: String): Connection = {
       if (random.nextBoolean) new Connection
       else throw new RuntimeException("Port toked")
@@ -65,6 +64,6 @@ object HandlingFailure extends App {
 
   val connectionStatus = for {
     connection <- Try(HttpService.getConnection(hostName, port))
-    html <- Try(connection.get(""))
+    html       <- Try(connection.get(""))
   } yield renderHTML(html)
 }

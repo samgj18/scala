@@ -30,7 +30,7 @@ object PartialFunctions extends App {
 
   // lift
   val lifted = aPartialFunction.lift // Int => Option[Int]
-  println(lifted(2)) // Some(56)
+  println(lifted(2))  // Some(56)
   println(lifted(98)) // None
 
   // chain
@@ -57,7 +57,7 @@ object PartialFunctions extends App {
         2. dumb chatbot
    */
   val manualFussyFunction = new PartialFunction[Int, Int] {
-    override def apply(x: Int): Int = x match {
+    override def apply(x: Int): Int           = x match {
       case 1 => 42
       case 2 => 65
       case 5 => 999
@@ -68,8 +68,8 @@ object PartialFunctions extends App {
   }
 
   val chatbot: PartialFunction[String, String] = {
-    case "hello"   => "Hi, my name is HAL9000"
-    case "goodbye" => "Once you start talking to me, there is no return, human!"
+    case "hello"    => "Hi, my name is HAL9000"
+    case "goodbye"  => "Once you start talking to me, there is no return, human!"
     case "call mom" => "Unable to find your phone without your credit card"
   }
 

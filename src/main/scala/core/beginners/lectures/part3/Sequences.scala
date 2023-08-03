@@ -16,8 +16,8 @@ object Sequences extends App {
   aRange.foreach(println)
 
   // Links
-  val aList = List(1, 2, 3)
-  val prepended = 42 :: aList
+  val aList             = List(1, 2, 3)
+  val prepended         = 42 :: aList
   val prependedAppended = 45 +: aList :+ 43
   println(prependedAppended)
 
@@ -26,12 +26,11 @@ object Sequences extends App {
   println(aList.mkString("-")) // Concatenates all the values
 
   // Arrays
-  val anArray = Array(1, 2, 3, 4)
+  val anArray       = Array(1, 2, 3, 4)
   val threeElements = Array.ofDim[String](3)
   println(threeElements.mkString("Array(", ", ", ")"))
 
-  /**
-    * Array mutation
+  /** Array mutation
     */
   anArray(2) = 0 // Syntax sugar for anArray.update(2, 0)
   println(anArray.mkString(" "))
@@ -44,11 +43,11 @@ object Sequences extends App {
   val aVector: Vector[Int] = Vector(1, 2, 3)
 
   val maxCapacity = 1000000
-  val maxRuns = 1000
+  val maxRuns     = 1000
 
   // Vector vs List
   def getWriteTime(collection: Seq[Int]): Double = {
-    val r = new Random
+    val r     = new Random
     val times = for {
       it <- 1 to maxRuns
     } yield {
@@ -60,7 +59,7 @@ object Sequences extends App {
     times.sum * 1.0 / maxRuns
   }
 
-  val numbersList = (1 to maxCapacity).toList
+  val numbersList   = (1 to maxCapacity).toList
   val numbersVector = (1 to maxCapacity).toVector
 
   // Keeps reference to tails
@@ -80,7 +79,7 @@ object Sequences extends App {
     Person("4", "Sameul", "Gomez")
   )
 
-  aThing.collect {
-    case person: Person => if (person.id == "1") Some(person) else None
+  aThing.collect { case person: Person =>
+    if (person.id == "1") Some(person) else None
   }.flatten
 }

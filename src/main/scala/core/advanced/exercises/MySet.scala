@@ -45,17 +45,17 @@ class EmptySet[A] extends MySet[A] { self =>
 
 class AllInclusiveSet[A] extends MySet[A] {
 
-  override def contains(elem: A): Boolean = true
-  override def +(elem: A): MySet[A] = this
+  override def contains(elem: A): Boolean         = true
+  override def +(elem: A): MySet[A]               = this
   override def ++(anotherSet: MySet[A]): MySet[A] = this
 
-  override def map[B](f: A => B): MySet[B] = ???
-  override def flatMap[B](f: A => MySet[B]): MySet[B] = ???
+  override def map[B](f: A => B): MySet[B]               = ???
+  override def flatMap[B](f: A => MySet[B]): MySet[B]    = ???
   override def filter(predicate: A => Boolean): MySet[A] = ???
 
-  override def -(elem: A): MySet[A] = ???
+  override def -(elem: A): MySet[A]               = ???
   override def --(anotherSet: MySet[A]): MySet[A] = ???
-  override def &(anotherSet: MySet[A]): MySet[A] = ???
+  override def &(anotherSet: MySet[A]): MySet[A]  = ???
 
   override def unary_! : MySet[A] = ???
 
@@ -72,10 +72,10 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] { self =>
     else filtered
   }
 
-  override def flatMap[B](f: A => MySet[B]): MySet[B] =
+  override def flatMap[B](f: A => MySet[B]): MySet[B]    =
     (tail flatMap f) ++ f(head)
 
-  override def map[B](f: A => B): MySet[B] = (tail map f) + f(head)
+  override def map[B](f: A => B): MySet[B]               = (tail map f) + f(head)
 
   override def +(elem: A): MySet[A] =
     if (self.contains(elem)) self else new NonEmptySet[A](elem, self)
@@ -85,7 +85,7 @@ class NonEmptySet[A](head: A, tail: MySet[A]) extends MySet[A] { self =>
   override def --(anotherSet: MySet[A]): MySet[A] =
     self.filter(x => !anotherSet(x))
 
-  override def &(anotherSet: MySet[A]): MySet[A] = self.filter(anotherSet)
+  override def &(anotherSet: MySet[A]): MySet[A]  = self.filter(anotherSet)
 
   override def unary_! : MySet[A] = filter(self)
 }

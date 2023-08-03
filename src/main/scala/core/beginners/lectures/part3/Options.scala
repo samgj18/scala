@@ -4,19 +4,19 @@ import scala.util.Random
 
 object Options extends App {
   val myFirstOption: Option[Int] = Some(4)
-  val noOption: Option[Int] = None
+  val noOption: Option[Int]      = None
 
   println(myFirstOption)
 
   // Unsafe API's
   def unsafeMethod: String = null
   //val result = Some(unsafeMethod) // This is wrong never do
-  val result = Option(unsafeMethod)
+  val result               = Option(unsafeMethod)
   println(result)
 
   //Chained methods
   def backupMethod: String = "A valid result"
-  val chainedResult = Option(unsafeMethod).orElse(Option(backupMethod))
+  val chainedResult        = Option(unsafeMethod).orElse(Option(backupMethod))
 
   //Design unsafe API's
   def betterUnsafeMethod: Option[String] =
@@ -37,8 +37,7 @@ object Options extends App {
   println(myFirstOption.flatMap(n => Option(n * 10)))
 
   // For comprehensions
-  /**
-    * Exercise
+  /** Exercise
     */
   val config: Map[String, String] = Map(
     "host" -> "localhost",
@@ -63,8 +62,8 @@ object Options extends App {
 
   val connectionStatus =
     for {
-      host <- config.get("host")
-      port <- config.get("port")
+      host       <- config.get("host")
+      port       <- config.get("port")
       connection <- Connection(host, port)
     } yield connection.connect
 

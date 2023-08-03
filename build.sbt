@@ -12,9 +12,9 @@ scalaVersion := "2.13.11"
 
 // It's possible to define many kinds of settings, such as:
 
-name := "fp-scala"
+name         := "fp-scala"
 organization := "ch.epfl.scala"
-version := "1.0"
+version      := "1.0"
 
 // Note, it's not required for you to define these three settings. These are
 // mostly only necessary if you intend to publish your library's binaries on a
@@ -24,8 +24,8 @@ version := "1.0"
 // You can define other libraries as dependencies in your build like this:
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2"
-libraryDependencies += "org.typelevel" %% "cats-effect" % "3.3.1"
-libraryDependencies += "com.typesafe.akka" %% "akka-actor-typed" % "2.8.3"
+libraryDependencies += "org.typelevel"          %% "cats-effect"              % "3.3.1"
+libraryDependencies += "com.typesafe.akka"      %% "akka-actor-typed"         % "2.8.3"
 
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the scala-parser-combinators dependency to the set of dependencies
