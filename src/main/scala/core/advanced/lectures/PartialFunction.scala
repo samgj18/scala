@@ -1,3 +1,5 @@
+package core.advanced.lectures
+
 object Advance extends App {
 
   // With anything that this partial function doesn't handle it'll throw

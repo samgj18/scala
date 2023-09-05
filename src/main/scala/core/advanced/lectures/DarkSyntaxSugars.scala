@@ -1,3 +1,5 @@
+package core.advanced.lectures
+
 import scala.util.Try
 object DarkSugars extends App {
   // Syntax sugar #1: method notation
