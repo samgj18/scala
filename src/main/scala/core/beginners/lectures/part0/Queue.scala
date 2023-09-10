@@ -1,4 +1,4 @@
-package lectures.part0
+package core.beginners.lectures.part0
 
 /** # Queue Data Structure
   *
