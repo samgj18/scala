@@ -1,4 +1,4 @@
-package catsstuff
+package cats.lectures
 
 trait Semigroups[A] {
   // A semigroup is a typeclass for a type A that defines a binary operation which results on another instance of the same type.

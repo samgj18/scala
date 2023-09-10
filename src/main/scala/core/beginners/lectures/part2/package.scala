@@ -1,4 +1,4 @@
-package lectures
+package core.beginners.lectures
 
 package object part2 {
   // Can only be one per package with the same name as the package it resides in

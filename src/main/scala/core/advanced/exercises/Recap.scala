@@ -1,4 +1,7 @@
+package core.advanced.exercises
+
 import scala.annotation.tailrec
+
 object Recap extends App {
   val aCondition        = true
   val aConditionedValue = if (aCondition) 5 else 3

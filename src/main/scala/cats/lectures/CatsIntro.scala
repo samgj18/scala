@@ -1,7 +1,10 @@
-package catsstuff
+package cats.lectures
+
+import scala.annotation.nowarn
 
 object CatsIntro extends App {
   // Eq
+  @nowarn
   val aComparison = 2 == "a string"
 
   // Part 1 - Typeclass import

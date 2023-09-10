@@ -1,4 +1,5 @@
-package lectures.part2
+package core.beginners.lectures.part2
+
 import scala.language.postfixOps
 
 object MethodNotations extends App {

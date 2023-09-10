@@ -1,6 +1,6 @@
-package exercises
+package core.beginners.exercises
 
-import exercises.AbstractClassVsTraits.RList.{RCons, REmpty}
+import AbstractClassVsTraits.RList.{RCons, REmpty}
 
 import scala.annotation.tailrec
 import javax.lang.model.element.Element

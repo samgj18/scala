@@ -1,4 +1,4 @@
-package lectures.part1
+package core.beginners.lectures.part1
 
 object DefaultArgs extends App {
   def trFact(n: Int, acc: Int = 1): Int = {

@@ -1,4 +1,4 @@
-package lectures.part1
+package core.beginners.lectures.part1
 
 object StringOps extends App {
   val str: String = "Hello, learning Scala"

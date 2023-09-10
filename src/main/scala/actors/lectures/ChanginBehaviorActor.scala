@@ -1,4 +1,4 @@
-package actors
+package actors.lectures
 
 import akka.actor.Actor
 import akka.actor.ActorRef

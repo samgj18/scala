@@ -1,4 +1,4 @@
-package catsstuff
+package cats.lectures
 
 import cats.effect.Sync
 

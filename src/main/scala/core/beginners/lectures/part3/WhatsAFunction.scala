@@ -1,4 +1,4 @@
-package lectures.part3
+package core.beginners.lectures.part3
 
 object WhatsAFunction extends App {
   // Use functions as first class elements

@@ -1,4 +1,4 @@
-package lectures.part1
+package core.beginners.lectures.part1
 
 object CBNvsCBV extends App {
   def calledByValue(x: Long): Unit = { // Evaluate x before and use it in the entire function

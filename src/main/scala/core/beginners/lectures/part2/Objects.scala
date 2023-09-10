@@ -1,4 +1,4 @@
-package lectures.part2
+package core.beginners.lectures.part2
 
 object Objects extends App {
   //Scala does not have Class Level Functionality ("static")

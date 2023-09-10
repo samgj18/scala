@@ -1,4 +1,4 @@
-package lectures.part1
+package core.beginners.lectures.part1
 
 object Functions extends App {
   def aFunction(a: String, b: Int): String =

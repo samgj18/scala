@@ -1,4 +1,4 @@
-package exercises
+package core.beginners.exercises
 
 abstract class MyList {
   /*

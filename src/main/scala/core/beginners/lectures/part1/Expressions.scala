@@ -1,4 +1,4 @@
-package lectures.part1
+package core.beginners.lectures.part1
 
 object Expressions extends App {
   val x = 1 + 2 // EXPRESSION

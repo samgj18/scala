@@ -1,4 +1,4 @@
-package lectures.part3
+package core.beginners.lectures.part3
 
 object AnonymousFunctions extends App {
   val doubler                            = new Function[Int, Int] {

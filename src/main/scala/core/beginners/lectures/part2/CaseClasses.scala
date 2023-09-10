@@ -1,4 +1,4 @@
-package lectures.part2
+package core.beginners.lectures.part2
 
 object CaseClasses extends App {
   case class Person(name: String, age: Int)
