@@ -8,7 +8,6 @@ import akka.actor.ActorSystem
 object ChildActor extends App {
 
   // Actors can create other actors
-
   class Parent extends Actor {
     import Parent._
 
