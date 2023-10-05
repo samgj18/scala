@@ -41,7 +41,7 @@ class TimeAssertionSpec
     }
 
     "reply to a test probe in a timely manner" in {
-      within(1.second) { 
+      within(1.second) {
         val probe = TestProbe()
         probe.send(worker, Work)
         probe.expectMsg(WorkResult(42))
