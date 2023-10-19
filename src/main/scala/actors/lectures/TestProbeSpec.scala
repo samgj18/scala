@@ -7,6 +7,7 @@ import org.scalatest.wordspec.AnyWordSpecLike
 
 class TestProbeSpec
     extends TestKit(ActorSystem("TestProbeSpec"))
+    // The ImplicitSender trait allows us to use the self reference
     with ImplicitSender
     with AnyWordSpecLike
     with BeforeAndAfterAll {

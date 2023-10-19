@@ -33,6 +33,7 @@ class BasicSpec
       val echo    = system.actorOf(Props[SimpleActor])
       val message = "test"
 
+      // Who is the sender? `self` which is being mixed in by ImplicitSender trait
       echo ! message
 
       expectMsg(message) // akka.test.single-expect-default
