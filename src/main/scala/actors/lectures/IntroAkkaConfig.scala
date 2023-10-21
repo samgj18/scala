@@ -59,13 +59,11 @@ object IntroAkkaConfig extends App {
   val specialSystem = ActorSystem("Special", specialConfig)
   val actor2        = specialSystem.actorOf(Props[SimpleLoggingActor])
 
-  /**
-    * 4. Separate configuration on a different file
+  /** 4. Separate configuration on a different file
     */
-   // val specialConfig = ConfigFactory.load("newPath/file.conf")
+  // val specialConfig = ConfigFactory.load("newPath/file.conf")
 
-   /**
-     * 5. .json files and .properties files can be used as well
-     */
-   // val specialConfig = ConfigFactory.load("file.json") // ConfigFactory.load("file.properties")
+  /** 5. .json files and .properties files can be used as well
+    */
+  // val specialConfig = ConfigFactory.load("file.json") // ConfigFactory.load("file.properties")
 }
